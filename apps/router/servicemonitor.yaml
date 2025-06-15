@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: python-router
+  labels:
+    release: monitoring  # MUST match your Helm release name
+spec:
+  selector:
+    matchLabels:
+      app: python-router
+  namespaceSelector:
+    matchNames:
+      - default
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 15s
