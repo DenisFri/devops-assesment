@@ -1,0 +1,4 @@
+resources:
+  - nginx-cell-1/deployment.yaml
+  - nginx-cell-2/deployment.yaml
+  - nginx-cell-3/deployment.yaml
