@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-router
+  labels:
+    app: python-router
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-router
+  template:
+    metadata:
+      labels:
+        app: python-router
+    spec:
+      containers:
+      - name: router
+        image: YOUR_DOCKERHUB_USERNAME/python-router:latest
+        ports:
+        - containerPort: 80
