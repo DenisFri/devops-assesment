@@ -1,7 +1,10 @@
 from fastapi import FastAPI, Request
 import httpx
+from prometheus_fastapi_instrumentator import Instrumentator
 
 app = FastAPI()
+
+Instrumentator().instrument(app).expose(app)
 
 CELL_SERVICE_MAP = {
     1: "http://nginx-cell-1",
