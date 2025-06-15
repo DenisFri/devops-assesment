@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: router
-        image: YOUR_DOCKERHUB_USERNAME/python-router:latest
+        image: denisfri/python-router:latest
         ports:
         - containerPort: 80
