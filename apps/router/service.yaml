@@ -2,11 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: python-router
+  labels:
+    app: python-router
 spec:
   selector:
     app: python-router
   ports:
-  - protocol: TCP
+  - name: http
     port: 80
     targetPort: 80
-  type: ClusterIP

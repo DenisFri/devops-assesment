@@ -14,6 +14,7 @@ spec:
     metadata:
       labels:
         app: python-router
+        prometheus: enabled
     spec:
       containers:
       - name: router
