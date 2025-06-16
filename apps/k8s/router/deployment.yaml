@@ -21,7 +21,7 @@ spec:
         image: denisfri/python-router:latest
         ports:
         - containerPort: 80
-          name: HTTP
+          name: http
         resources:
           requests:
             cpu: "100m"
