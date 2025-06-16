@@ -3,7 +3,7 @@ kind: ServiceMonitor
 metadata:
   name: python-router
   labels:
-    release: monitoring  # MUST match your Helm release name
+    release: monitoring
 spec:
   selector:
     matchLabels:
@@ -15,3 +15,6 @@ spec:
     - port: http
       path: /metrics
       interval: 15s
+  metricRelabelings:
+    - sourceLabels: [__meta_kubernetes_pod_label_app]
+      targetLable: app
