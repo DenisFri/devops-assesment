@@ -16,3 +16,11 @@ spec:
           annotations:
             summary: "High 5xx error rate on python-router"
             description: "More than 10% of requests failed in the last minute."
+        - alert: NoIncomingRequests
+          expr: rate(http_requests_total{method="POST", handler="/"}[1m]) == 0
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: "No POST requests received in 1m"
+            description: "The python-router hasn't received any POST requests to / in the past minute."
