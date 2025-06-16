@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: python-router-alerts
+  labels:
+    release: monitoring
+spec:
+  groups:
+    - name: python-router.rules
+      rules:
+        - alert: HighErrorRate
+          expr: rate(http_server_requests_total{app="python-router",status=~"5.."}[1m]) > 0.1
+          for: 30s
+          labels:
+            severity: critical
+          annotations:
+            summary: "High 5xx error rate on python-router"
+            description: "More than 10% of requests failed in the last minute."
