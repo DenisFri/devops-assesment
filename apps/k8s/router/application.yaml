@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/DenisFri/devops-assesment.git
     targetRevision: HEAD
-    path: k8s/router
+    path: apps/k8s/router
   destination:
     server: https://kubernetes.default.svc
     namespace: default
